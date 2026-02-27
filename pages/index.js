@@ -1,115 +1,90 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Phone, Mail, Zap, Wrench, Home, MessageCircle } from "lucide-react";
-import { motion } from "framer-motion";
+iimport React from "react";
 
 export default function JLInstalacoesSite() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white">
-      {/* BOTÃO FLUTUANTE WHATSAPP */}
+    <div style={{ fontFamily: "Arial, sans-serif", margin: 0, padding: 0 }}>
+      {/* BOTÃO WHATSAPP */}
       <a
         href="https://wa.me/5511952020940"
         target="_blank"
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 p-4 rounded-full shadow-2xl z-50"
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          backgroundColor: "#25D366",
+          color: "white",
+          padding: "15px 20px",
+          borderRadius: "50px",
+          textDecoration: "none",
+          fontWeight: "bold"
+        }}
       >
-        <MessageCircle size={28} />
+        WhatsApp
       </a>
 
-      {/* Hero Section */}
-      <section className="text-center py-20 px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold mb-6"
-        >
-          J&L Instalações
-        </motion.h1>
-        <p className="text-lg md:text-xl text-gray-200 mb-8">
-          Automação • Elétrica • Instalação • Manutenção
-        </p>
-        <p className="text-gray-300 mb-8">Atendemos São Paulo e Região</p>
-        <a href="#orcamento">
-          <Button className="text-lg px-8 py-6 rounded-2xl">
-            Solicitar Orçamento
-          </Button>
+      {/* HERO */}
+      <section style={{ background: "#0f172a", color: "white", padding: "80px 20px", textAlign: "center" }}>
+        <h1 style={{ fontSize: "42px", marginBottom: "20px" }}>J&L Instalações</h1>
+        <p style={{ fontSize: "20px" }}>Automação • Elétrica • Instalação • Manutenção</p>
+        <p>Atendemos São Paulo e Região</p>
+        <a href="#orcamento" style={{
+          display: "inline-block",
+          marginTop: "20px",
+          padding: "15px 30px",
+          background: "#2563eb",
+          color: "white",
+          textDecoration: "none",
+          borderRadius: "8px"
+        }}>
+          Solicitar Orçamento
         </a>
       </section>
 
-      {/* Serviços */}
-      <section className="py-16 px-6 bg-slate-900/60">
-        <h2 className="text-3xl font-bold text-center mb-12">Nossos Serviços</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      {/* SERVIÇOS */}
+      <section style={{ padding: "60px 20px", textAlign: "center" }}>
+        <h2 style={{ marginBottom: "40px" }}>Nossos Serviços</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "20px" }}>
           {[
-            {
-              title: "Automação Residencial",
-              icon: <Home className="mx-auto mb-4" size={40} />,
-              img: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800",
-              desc: "Controle iluminação, portões, câmeras e dispositivos inteligentes pelo celular."
-            },
-            {
-              title: "Elétrica",
-              icon: <Zap className="mx-auto mb-4" size={40} />,
-              img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800",
-              desc: "Instalações elétricas residenciais com segurança e qualidade profissional."
-            },
-            {
-              title: "Instalação",
-              icon: <Wrench className="mx-auto mb-4" size={40} />,
-              img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800",
-              desc: "Instalação de câmeras, fechaduras digitais e sistemas inteligentes."
-            },
-            {
-              title: "Manutenção",
-              icon: <Wrench className="mx-auto mb-4" size={40} />,
-              img: "https://images.unsplash.com/photo-1581091012184-5c0f0b0b5b1b?q=80&w=800",
-              desc: "Manutenção preventiva e corretiva especializada."
-            }
+            "Automação Residencial",
+            "Instalações Elétricas",
+            "Instalação de Equipamentos",
+            "Manutenção Preventiva e Corretiva"
           ].map((service, index) => (
-            <Card key={index} className="rounded-2xl shadow-xl bg-slate-800 border-none overflow-hidden hover:scale-105 transition-transform">
-              <img src={service.img} alt={service.title} className="w-full h-40 object-cover" />
-              <CardContent className="p-6 text-center">
-                {service.icon}
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-300">{service.desc}</p>
-              </CardContent>
-            </Card>
+            <div key={index} style={{ border: "1px solid #ddd", padding: "20px", borderRadius: "10px" }}>
+              <img
+                src={`https://source.unsplash.com/400x250/?electrician,smart-home&sig=${index}`}
+                alt={service}
+                style={{ width: "100%", borderRadius: "8px" }}
+              />
+              <h3 style={{ marginTop: "15px" }}>{service}</h3>
+            </div>
           ))}
         </div>
       </section>
 
-      
-
-      {/* FORMULÁRIO DE ORÇAMENTO */}
-      <section id="orcamento" className="py-16 px-6 bg-slate-900/60">
-        <h2 className="text-3xl font-bold text-center mb-12">Solicite um Orçamento</h2>
-        <form className="max-w-3xl mx-auto grid gap-6">
-          <input type="text" placeholder="Nome" className="p-4 rounded-xl text-black" required />
-          <input type="tel" placeholder="Telefone" className="p-4 rounded-xl text-black" required />
-          <input type="email" placeholder="Email" className="p-4 rounded-xl text-black" required />
-          <textarea placeholder="Descreva o serviço desejado" className="p-4 rounded-xl text-black" rows="4" required></textarea>
-          <Button className="text-lg py-6 rounded-2xl">Enviar Solicitação</Button>
+      {/* ORÇAMENTO */}
+      <section id="orcamento" style={{ background: "#f1f5f9", padding: "60px 20px", textAlign: "center" }}>
+        <h2>Solicite um Orçamento</h2>
+        <form style={{ maxWidth: "500px", margin: "0 auto", display: "grid", gap: "15px" }}>
+          <input type="text" placeholder="Nome" required style={{ padding: "10px" }} />
+          <input type="tel" placeholder="Telefone" required style={{ padding: "10px" }} />
+          <input type="email" placeholder="Email" required style={{ padding: "10px" }} />
+          <textarea placeholder="Descreva o serviço desejado" rows="4" required style={{ padding: "10px" }}></textarea>
+          <button type="submit" style={{ padding: "12px", background: "#2563eb", color: "white", border: "none", borderRadius: "6px" }}>
+            Enviar Solicitação
+          </button>
         </form>
       </section>
 
-      {/* Contato */}
-      <section className="py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-8">Contato</h2>
-        <div className="space-y-4 text-lg">
-          <p className="flex items-center justify-center gap-3">
-            <Phone size={20} /> (11) 9 5202-0940
-          </p>
-          <p className="flex items-center justify-center gap-3">
-            <Phone size={20} /> (11) 9 7376-3563
-          </p>
-          <p className="flex items-center justify-center gap-3">
-            <Mail size={20} /> jlinstalacoes@gmail.com
-          </p>
-        </div>
+      {/* CONTATO */}
+      <section style={{ padding: "60px 20px", textAlign: "center" }}>
+        <h2>Contato</h2>
+        <p>(11) 9 5202-0940</p>
+        <p>(11) 9 7376-3563</p>
+        <p>jlinstalacoes@gmail.com</p>
       </section>
 
-      <footer className="text-center py-6 bg-slate-950 text-gray-400">
+      <footer style={{ background: "#0f172a", color: "white", textAlign: "center", padding: "20px" }}>
         © {new Date().getFullYear()} J&L Instalações - Todos os direitos reservados
       </footer>
     </div>
